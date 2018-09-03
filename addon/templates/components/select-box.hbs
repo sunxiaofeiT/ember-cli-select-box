@@ -1,0 +1,24 @@
+<div class="custom-select">
+    <div class="select-head">
+        <div class="select-input-div">
+            <div class="select-input" {{action 'displayOptions'}}>
+            {{#if select.selected}} 
+                {{select.optionSelected}} 
+            {{else}} 
+                {{select.placeholder}} 
+            {{/if}}
+            </div>
+            <div class="select-icon-drop">▼</div>
+            <div class="select-icon-delete" {{action "deleteSelected"}}>✕</div>
+        </div>
+    </div>
+    <div class="select-options">
+        {{#each select.options as |option|}}
+            <div class="select-option" {{action 'closeOptions'}} {{action 'selectOption' option}}>
+                {{option}}
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+{{yield}}
